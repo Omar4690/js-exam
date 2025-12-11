@@ -1,0 +1,199 @@
+
+::selection {
+    background-color: white;
+    color: black !important;
+}
+
+/* sidebar */
+
+#main-sidebar {
+    width: 250px;
+    margin-left: -250px;
+    transition: margin-left 0.5s;
+    padding-left: 20px;
+    position: fixed;
+    top:0;
+    left:0;
+}
+#side-menu-strip {
+    width:60px !important;
+}
+
+#side-menu-strip{
+    width: 50px;
+    transition: left 0.5s;  
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 9999;
+}
+
+#main-sidebar ul {
+    list-style: none;
+}
+#main-sidebar ul li a:hover{
+    color: #ff655c !important;
+}
+#main-sidebar ul li a{
+    transition: color 0.5s;
+}
+
+
+#sidebar-menu-list li {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+#sidebar-menu-list.show li {
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+#sidebar-menu-list.show li:nth-child(1) { transition-delay: 0.1s; }
+#sidebar-menu-list.show li:nth-child(2) { transition-delay: 0.2s; }
+#sidebar-menu-list.show li:nth-child(3) { transition-delay: 0.3s; }
+#sidebar-menu-list.show li:nth-child(4) { transition-delay: 0.4s; }
+#sidebar-menu-list.show li:nth-child(5) { transition-delay: 0.5s; }
+#sidebar-menu-list.show li:nth-child(6) { transition-delay: 0.6s; }
+
+/* random classes */
+.side-p{
+    color: #999999;
+}
+
+.f-p {
+    font-size: 12px;
+}
+
+
+/* cards */
+.vote {
+    display: inline-block;
+    padding: 0 10px;
+    vertical-align: middle;
+    
+}
+
+.img-fluid {
+    width: 90% !important;
+}
+
+.item {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+    cursor: pointer;
+}
+
+.item img {
+    transition: transform 0.8s, opacity 0.5s;
+}
+
+.item:hover img {
+    transform: rotate(5deg) scale(1.2);
+    opacity: 0.8;
+    z-index: 10;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    
+}
+
+.item:hover .overlay {
+    opacity: 1;
+    visibility: visible;
+    
+}
+
+
+.overlay h1,
+.overlay p,
+.overlay h3 {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.item:hover .overlay h1,
+.item:hover .overlay p,
+.item:hover .overlay h3 {
+    transform: translateY(-2px);
+    opacity: 1;
+}
+
+.item:hover .overlay .title {
+    transition-delay: 0.2s;
+}
+
+.item:hover .overlay .desc {
+    transition-delay: 0.3s;
+}
+
+.item:hover .overlay .date {
+    transition-delay: 0.4s;
+}
+
+.item:hover .overlay .rate {
+    transition-delay: 0.5s;
+}
+
+.item:hover .overlay .vote {
+    transition-delay: 0.6s;
+}
+
+/* contact */
+.contact input::placeholder {
+    color: #999999;
+    opacity: 1;
+    text-align: center;
+}
+
+.button-main {
+    padding: 8px 30px;
+}
+.btn-white:hover{
+    background-color: white;
+    color: black !important;
+}
+.btn-white{
+    transition: background-color 0.5s, color 0.5s;
+}
+/* .contact button {
+    transition: background-color 0.5s, color 0.5s;
+} */
+
+/* .contact button:hover {
+    background-color: white;
+    color: black !important;
+} */
+#search::placeholder {
+    color: #999999;
+    opacity: 1;
+}
+
+
+
+/* Scroll-to-Top Button Styling */
+.step-up {
+    position: fixed; 
+    right: 20px; 
+    bottom: 20px; 
+    z-index: 1000; 
+    width: 40px; 
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

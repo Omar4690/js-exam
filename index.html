@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Movies</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/all.min.css"> 
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <main>
+        <!-- sidebar -->
+
+        <nav id="main-sidebar" class="vh-100 d-flex flex-column justify-content-between py-4 bg-black text-white z-3">
+            <ul id="sidebar-menu-list">
+                <li class="pt-4">
+                    <a class="text-decoration-none text-white fs-6 fw-lighter" href="#"
+                        onclick="fetchMovies('/movie/now_playing'); closeSidebar(); return false;">Now playing</a>
+                </li>
+                <li class="pt-4">
+                    <a class="text-decoration-none text-white fs-6 fw-lighter" href="#"
+                        onclick="fetchMovies('/movie/popular'); closeSidebar(); return false;">Popular</a>
+                </li>
+                <li class="pt-4">
+                    <a class="text-decoration-none text-white fs-6 fw-lighter" href="#"
+                        onclick="fetchMovies('/movie/top_rated'); closeSidebar(); return false;">Top Rating</a>
+                </li>
+                <li class="pt-4">
+                    <a class="text-decoration-none text-white fs-6 fw-lighter" href="#"
+                        onclick="fetchMovies('/trending/all/day'); closeSidebar(); return false;">Trending</a>
+                </li>
+                <li class="pt-4">
+                    <a class="text-decoration-none text-white fs-6 fw-lighter" href="#"
+                        onclick="fetchMovies('/movie/upcoming'); closeSidebar(); return false;">upcoming</a>
+                </li>
+                <li class="pt-4">
+                    <a class="text-decoration-none text-white fs-6 fw-lighter" href="#contact"
+                        onclick="closeSidebar();">Contact Us</a>
+                </li>
+            </ul>
+            <div class="footer side-p">
+                <div class="soical-side pb-2 ">
+                    <i class="fa-brands fa-facebook-f"></i>
+                    <i class="fa-brands fa-twitter px-2"></i>
+                    <i class="fa-solid fa-globe "></i>
+                </div>
+                <p>Copyright © 2022 All Rights Reserved.
+                    <br>
+                    Created by <a class="text-decoration-none text-danger" href="https://github.com/Develekko">Housam
+                        Ramadan</a></p>
+            </div>
+        </nav>
+
+        <div id="side-menu-strip"
+            class=" vh-100 bg-white z-4 d-flex flex-column justify-content-between text-center py-4 p-3">
+            <img src="./images/weather iimages1 (1).png" class="w-100" alt="logo">
+
+            <div id="nav-toggle-icon">
+                <i id="open-icon" onclick="openSidebar()" class="fa-solid fa-bars fs-4"></i>
+            </div>
+
+            <div class="social">
+                <i class="fa-solid fa-globe pb-2"></i>
+                <i class="fa-solid fa-share-nodes"></i>
+            </div>
+        </div>
+
+        <!-- display cards -->
+
+        <section id="hero" class="hero min-vh-100 bg-black py-5">
+            <div class="container me-5">
+                <input id="search" type="search" placeholder="Search"
+                    class="form-control w-50 mx-auto bg-transparent rounded-pill text-white shadow-none border-white px-3 text-white">
+
+                <div class="row g-4 mt-3 text-white">
+                    
+
+                </div>
+            </div>
+
+            <div class="step-up ">
+                <a  href="#hero"><i class="fa-solid fa-arrow-up text-white"></i></a>
+            </div>
+
+        </section>
+
+        <!-- contact section -->
+
+        <section class="contact position-relative min-vh-100 py-5 bg-black text-white d-flex align-items-center" id="contact">
+            <div class="container">
+                <h2 class="text-white mb-5">Contact US</h2>
+
+                <form class="">
+                    <div class="row g-4">
+
+                        <div class="col-md-6 ">
+                            <div class="form-group border-bottom border-white pb-2 ">
+                                <input type="text"
+                                    class="form-control bg-transparent text-white border-0 shadow-none px-0 "
+                                    placeholder="Enter Your Name"
+                                    list="namelist" >
+                            </div>
+                            <p class="text-danger pt-2 m-0 d-none">invalid Name , only characters allowed</p>
+                            <datalist id="namelist">
+                                <option value="Omar"></option>
+                                <option value="Ahmed"></option>
+                                <option value="Mohammed"></option>
+                            </datalist>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group border-bottom border-white pb-2">
+                                <input type="email"
+                                    class="form-control bg-transparent text-white border-0 shadow-none px-0"
+                                    placeholder="Enter Your Email" list="emaillist">
+                            </div>
+                            <p class="text-danger pt-2 m-0 d-none">invalid Email , try example@domain.com</p>
+                            <datalist id="emaillist">
+                                <option value="test@mail.com"></option>
+                                <option value="john.doe@example.com"></option>
+                            </datalist>
+
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group border-bottom border-white pb-2">
+                                <input type="tel"
+                                    class="form-control bg-transparent text-white border-0 shadow-none px-0"
+                                    placeholder="Enter Your Phone">
+                            </div>
+                            <p class="text-danger pt-2 m-0 d-none">invalid Phone Number</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group border-bottom border-white pb-2">
+                                <input type="text"
+                                    class="form-control bg-transparent text-white border-0 shadow-none px-0"
+                                    placeholder="Enter Your Age" >
+                            </div>
+                            <p class="text-danger pt-2 m-0 d-none">Your age must be 16+</p>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group border-bottom border-white pb-2 d-flex align-items-center">
+                                <input type="password"
+                                    class="form-control bg-transparent text-white border-0 shadow-none px-0"
+                                    placeholder="Enter Your Password">
+                                <i class="fa-regular fa-eye-slash text-white-50" onclick="togglePasswordVisibility()"></i>
+                                
+                            </div>
+                            <p class="pass-p text-danger pt-2 m-0 d-none">Password must contain numbers & Letters at least 8
+                                character</p>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="form-group border-bottom border-white pb-2">
+                                <input type="password"
+                                    class="form-control bg-transparent text-white border-0 shadow-none px-0"
+                                    placeholder="ReEnter Password">
+                            </div>
+                            <p class="text-danger pt-2 m-0 d-none">Password not match</p>
+                        </div>
+
+                    </div>
+
+                </form>
+                <button type="submit" class="btn btn-white text-white text-lighter mt-4 button-main">
+                    Submit
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+
+
+
+
+
+
+
+
+    <script src="./jss/bootstrap.bundle.min.js"></script>
+    <script src="./jss/all.min.js"></script>
+    <script src="./jss/index.js"></script>
+</body>
+
+</html>
